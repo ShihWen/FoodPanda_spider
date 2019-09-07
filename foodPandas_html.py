@@ -73,9 +73,6 @@ class FoodPandaHtml():
                                      new_dish_price_in_category[i][j]))
                 result.append(dish_refined)
 
-        #for i in range(len(category_title)):
-            #print(category_title[i],dish_name_in_category[i],new_dish_price_in_category[i])
-
         return result
 
 
