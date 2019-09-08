@@ -8,19 +8,6 @@ class FoodPandaHtmlDownloader():
     def __init__(self):
         self.result = []
 
-    def get_html(self, url_list):
-        start = datetime.datetime.now()
-        count = 1
-        percentage = str(round(count/len(url_list)*100,2))
-        for url in url_list:
-            percentage = str(round(count/len(url_list)*100,2))
-            sys.stdout.write('\rdownloading {} url, progress {} '.format(count, percentage))
-            r = requests.get(url)
-            self.result.append(r.text)
-            count += 1
-        total_time = datetime.datetime.now() - start
-        print('\nRuntime: {}'.format(total_time))
-
     def get_html_single(self, url):
         r = requests.get(url)
         self.result.append(r.text)
