@@ -78,7 +78,7 @@ class FoodPandaHtmlProcesser():
         lock = threading.Lock()
         for html in html_list:
             percentage = str(round(count/len(html_list)*100,2))
-            sys.stdout.write('\rhtml processing, {} % complete'.format(percentage))
+            sys.stdout.write('\rhtml processing, {} % completed'.format(percentage))
             dishes = self.get_dish_info(html)
             for item in dishes:
                 results.append(item)
@@ -98,7 +98,9 @@ class FoodPandaHtmlProcesser():
         print('extracting start')
         title = ['extract_date','store_name','store_price_lv','store_type','dish_type','dish_name','dish_price']
         self.result.append(title)
-        self.result = self.get_dish_info_bulk(html_list)
+
+        for item in self.get_dish_info_bulk(html_list):
+            self.result.append(item)
         self.to_csv(self.result)
 
         total_time = datetime.datetime.now() - start

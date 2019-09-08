@@ -35,7 +35,7 @@ class FoodPandaUrl():
             #If site page stop updating, check how many times the page has loading new data,
             # if less than 8*, refresh the page. *depends on the your preferance.
             while len(pics) == len(self.driver.find_elements_by_class_name('vendor-picture')):
-                time.sleep(0.25)
+                time.sleep(0.5)
                 if len(pics) < len(self.driver.find_elements_by_class_name('vendor-picture')):
                     pics = self.driver.find_elements_by_class_name('vendor-picture')
                     last_pic = pics[-1]
