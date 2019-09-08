@@ -2,7 +2,7 @@
 The __foodPandas_spider.py__ is consist of 3 parts:
 - foodPandas_url.py: Dowlaod urls from the site page using Selenium.
 - foodPandas_html_download.py: Send requests to the urls to get htmls.
-- foodPandas_html_process.py: Extract dish data from htmls and saved as csv files.
+- foodPandas_html_process.py: Extract dish data from htmls and save as csv files.
 
 
 Out put columns include:
