@@ -16,7 +16,7 @@ class FoodPandaUrl():
         option.add_argument('--ignore-certificate-errors')
         option.add_argument('--ignore-ssl-errors')
         self.driver = webdriver.Chrome(chrome_options = option)
-        self.url_result = None
+        self.result = None
 
     def timePractice(self):
         time.sleep(5)
@@ -62,7 +62,6 @@ class FoodPandaUrl():
         section = ['opened', 'closed']
         count = 0
         url_root = 'https://www.foodpanda.com.tw'
-        res_name_location = []
         url_res_list = []
 
         for item in section:
@@ -102,6 +101,9 @@ class FoodPandaUrl():
         total_stores = self.page_scrolling()
         html = self.driver.page_source
         soup = BeautifulSoup(html,'lxml')
-        self.url_result = self.url_list(soup)
-        self.teardown
-        print(total_stores, len(self.url_result), '\n')
+        self.result = self.url_list(soup)
+        self.teardown()
+        print(total_stores, len(self.result), '\n')
+
+        total_time = datetime.datetime.now() - start
+        print('\nRuntime for url download: {}'.format(total_time))
